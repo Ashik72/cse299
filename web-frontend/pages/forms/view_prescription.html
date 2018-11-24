@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Add Prescription</title>
+  <title>View Prescription</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -85,8 +85,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/web-frontend/pages/forms/view_prescription.html"><i class="fa fa-circle-o"></i>View Prescriptions</a></li>
-            <li class="active"><a href="/web-frontend/pages/forms/prescription.html"><i class="fa fa-circle-o"></i> Write Prescription</a></li>
+            <li class="active"><a href="/web-frontend/pages/forms/view_prescription.html"><i class="fa fa-circle-o"></i>View Prescriptions</a></li>
+            <li><a href="/web-frontend/pages/forms/prescription.html"><i class="fa fa-circle-o"></i> Write Prescription</a></li>
           </ul>
         </li>
 
@@ -100,7 +100,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Add New Prescription
+        View Prescription
         <!--<small>Preview</small>-->
       </h1>
       <ol class="breadcrumb">
@@ -118,212 +118,20 @@
           <div class="box box-warning prescription_box">
             <!-- /.box-header -->
             <div class="box-body">
-              <form role="form" id="add_prescription_form">
-
-                <div class="content">
-                  <div class="row patient_details_row">
-                    <div class="col-md-12">
-
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Patient Details</h3>
-                      </div>
-
-                      <div class="box-body">
-                        <div class="row">
-                          <div class="col-xs-5">
-                            <label>Patient Name:</label>
-                            <input required name="patient_name" type="text" placeholder="Write patient name..." class="form-control">
-                          </div>
-                          <div class="col-xs-4">
-                            <label>Patient Mobile No:</label>
-                            <input required name="patient_mobile_no" type="number" placeholder="8801xxxxxxxxx" class="form-control">
-                          </div>
-                          <div class="col-xs-3">
-                            <label>Date of Birth:</label>
-                            <input required name="patient_dob" type="date" class="form-control" placeholder="yyyy-mm-dd">
-                          </div>
-                        </div>
-
-                        <div class="row">
-                          <div class="col-xs-3">
-                            <label>Date:</label>
-                            <input required name="presc_date" type="date" placeholder="yyyy-mm-dd" class="form-control">
-                          </div>
-                        </div>
 
 
-                      </div>
-
-
-
-                    </div>
-                  </div>
-                  <div class="row patient_data_row">
-
-                    <div class="col-md-12">
-                    <div class="box-header with-border">
-                      <h3 class="box-title">Prescription Details</h3>
-                    </div>
-                    </div>
-                  <div class="col-md-4 patient_case_row">
-
-                    <div class="box-header with-border case_box">
-                      <h3 class="box-title">C/C</h3>
-
-                      <div class="row">
-                        <div class="col-xs-4">
-                          <label>Name:</label>
-                          <input type="text" name="case_name[]" placeholder="Case name" class="form-control">
-                        </div>
-
-                        <div class="col-xs-8">
-                          <label>Comments:</label>
-                          <input name="case_comment[]" type="text" placeholder="Your comment" class="form-control">
-                        </div>
-
-                      </div>
-
-                      <div class="row">
-                        <div class="col-xs-4">
-                          <label>Name:</label>
-                          <input type="text"  name="case_name[]" placeholder="Case name" class="form-control">
-                        </div>
-
-                        <div class="col-xs-8">
-                          <label>Comments:</label>
-                          <input name="case_comment[]" type="text" placeholder="Your comment" class="form-control">
-                        </div>
-
-                      </div>
-
-                      <div class="row add_btn">
-                        <div class="col-xs-12">
-                          <a class="btn btn-app add-element-button">
-                            <i class="fa fa-plus"></i> Add
-                          </a>
-
-                        </div>
-                      </div>
-
-                    </div>
-
-                    <div class="box-header with-border test_box">
-                      <h3 class="box-title">Tests</h3>
-
-                      <div class="row">
-                        <div class="col-xs-4">
-                          <label>Name:</label>
-                          <input type="text" name="test_name[]" placeholder="Test name" class="form-control">
-                        </div>
-
-                        <div class="col-xs-8">
-                          <label>Comments:</label>
-                          <input type="text" name="test_comment[]" placeholder="Your comment" class="form-control">
-                        </div>
-
-                      </div>
-
-                      <div class="row">
-                        <div class="col-xs-4">
-                          <label>Name:</label>
-                          <input type="text" name="test_name[]" placeholder="Test name" class="form-control">
-                        </div>
-
-                        <div class="col-xs-8">
-                          <label>Comments:</label>
-                          <input type="text" name="test_comment[]" placeholder="Your comment" class="form-control">
-                        </div>
-
-                      </div>
-
-                      <div class="row add_btn">
-                        <div class="col-xs-12">
-                          <a class="btn btn-app add-element-button">
-                            <i class="fa fa-plus"></i> Add
-                          </a>
-
-                        </div>
-                      </div>
-
-                    </div>
-
-
-                  </div>
-                  <div class="col-md-8 patient_drug_row">
-
-                    <div class="box-header with-border drug_box">
-                      <h3 class="box-title">Rx</h3>
-
-                      <div class="row">
-                        <div class="col-xs-4">
-                          <label>Drug:</label>
-                          <input type="text" name="drug_name[]" placeholder="Drug name" class="form-control">
-                        </div>
-
-                        <div class="col-xs-4">
-                          <label>Concentration:</label>
-                          <input name="drug_conc[]" type="text" placeholder="xx mg" class="form-control">
-                        </div>
-
-                        <div class="col-xs-4">
-                          <label>Time:</label>
-                          <input name="drug_time[]" type="text" placeholder="x-x-x (Time to take)" class="form-control">
-                        </div>
-
-
-                      </div>
-                      <div class="row">
-                        <div class="col-xs-4">
-                          <label>Drug:</label>
-                          <input name="drug_name[]" type="text" placeholder="Drug name" class="form-control">
-                        </div>
-
-                        <div class="col-xs-4">
-                          <label>Concentration:</label>
-                          <input name="drug_conc[]" type="text" placeholder="xx mg" class="form-control">
-                        </div>
-
-                        <div class="col-xs-4">
-                          <label>Time:</label>
-                          <input name="drug_time[]" type="text" placeholder="x-x-x (Time to take)" class="form-control">
-                        </div>
-
-
-                      </div>
-
-                      <div class="row add_btn">
-                        <div class="col-xs-12">
-                          <a class="btn btn-app add-element-button">
-                            <i class="fa fa-plus"></i> Add
-                          </a>
-
-                        </div>
-                      </div>
-
-
-                    </div>
-
-                      <div class="box-header comments_box">
-                        <h3 class="box-title">Comments</h3>
-                      </div>
-                      <!-- /.box-header -->
-                      <div class="box-body pad">
-                <textarea name="comments" class="textarea" placeholder="Add your comments"
-                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                      </div>
-
-                  </div>
-                  </div>
-                </div>
-
-
-                <div class="box-footer">
-                  <button type="submit" class="btn btn-default">Cancel</button>
-                  <button type="submit" class="btn btn-info pull-right">Confirm Prescription</button>
-                </div>
-
-
+              <form>
+                <div class="form-group">
+                  <select class="form-control" id="selectPresc">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
               </form>
+
+
             </div>
             <!-- /.box-body -->
           </div>

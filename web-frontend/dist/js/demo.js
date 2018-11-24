@@ -362,7 +362,7 @@ $(function () {
         init: function () {
             this.add_element();
             this.process_add_prescription();
-
+            this.select_presc();
         },
 
         add_element: function () {
@@ -383,10 +383,76 @@ $(function () {
 
             $( "#add_prescription_form" ).submit(function( event ) {
                 event.preventDefault();
-                var data = $(this).serializeArray();
-
+                let data = $(this).serializeArray();
+                let token = {
+                    name: "token",
+                    value: localStorage.getItem("presc_user_token")
+                }
+                data.push(token);
 
                 console.log(data);
+
+                $.ajax({
+                    url:        'http://cse299.wp-expert.us:8001/api/add_prescription',
+                    type:       "POST",
+                    data:  data,
+                    dataType: 'text json',
+                    success: function (data, textStatus, jqXHR) {
+                        console.log(data);
+                        //localStorage.setItem("presc_user_token", data.token);
+                        //window.location.href = "/web-frontend/";
+                        return;
+                    },
+
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        localStorage.removeItem("presc_user_token");
+                        window.location.href = "/web-frontend/pages/examples/login.html";
+
+                        console.log([jqXHR, textStatus, errorThrown]);
+
+                    },
+
+                    complete: function (jqXHR, textStatus) {
+                        //DO SOMETHING HERE IF YOU WISH TO
+                    }
+                });
+
+            });
+
+        },
+
+        select_presc: function () {
+
+
+            let location_uri = location.pathname.substr(1);
+
+            if (location_uri.search("view_prescription") < 0) return;
+
+            let token = {
+                name: "token",
+                value: localStorage.getItem("presc_user_token")
+            };
+            let data = [];
+            data.push(token);
+
+            $.post( "http://cse299.wp-expert.us:8001/api/list_presc", data, function( data ) {
+                console.log(data);
+                $("#selectPresc").empty();
+                window.presc_data = data;
+                $.each(data, function (k, v) {
+                    $("#selectPresc").append("<option>"+v.id+"</option>");
+                })
+                
+
+            });
+
+            console.log("fdsf");
+                $('#selectPresc').on('change', function() {
+
+                    let txt = JSON.stringify(presc_data[this.value-1]);
+                    txt += "<br> Try POS Printer with the ID!"
+                $(".presc_data").remove();
+                $("form").append("<div class='presc_data'>"+txt+"</div>")
 
             });
 

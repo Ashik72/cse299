@@ -25,7 +25,7 @@ $router->get('/hello/{name}', function ($name) {
 
 
 $router->get('/db', function () {
-    dd(app('db'));
+    //dd(app('db'));
     return DB::select("SELECT * FROM departments");
 });
 
@@ -53,6 +53,8 @@ $router->group(['prefix' => 'api', 'middleware' => 'jwt.auth'], function () use 
         return serialize($_POST);
     });
 
+    $router->post('add_prescription', ['uses' => 'PrescController@add_prescription']);
+    $router->post('list_presc', ['uses' => 'PrescController@list_presc']);
 
 
 });
@@ -63,6 +65,8 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
 
     $router->post('add_user', ['uses' => 'UserController@create']);
+
+    $router->post('get_presc', ['uses' => 'PrescController@get_presc']);
 
 
 });

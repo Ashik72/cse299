@@ -78,7 +78,7 @@ class AuthController extends BaseController
         if (Hash::check($this->request->input('password'), $user->password)) {
             return response()->json([
                 'token' => $this->jwt($user)
-            ], 200);
+            ]);
         }
 
         // Bad Request response
