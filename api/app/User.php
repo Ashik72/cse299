@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Couchbase\Authenticator;
 use Illuminate\Auth\Authenticatable;
 use Laravel\Lumen\Auth\Authorizable;
 use Illuminate\Database\Eloquent\Model;
@@ -12,13 +13,16 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 {
     use Authenticatable, Authorizable;
 
+    public $table = "user";
+    public $timestamps = false;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email',
+        'user_name', 'role_id', 'type_id', 'password', 'email_addr', 'reg_date'
     ];
 
     /**
@@ -27,6 +31,12 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $hidden = [
-        'password',
+        'password'
     ];
+
+    public function setPasswordAttribute($value){
+        $this->attributes['password'] = app('hash')->make($value);
+    }
+
+
 }

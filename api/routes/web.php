@@ -28,3 +28,47 @@ $router->get('/db', function () {
     dd(app('db'));
     return DB::select("SELECT * FROM departments");
 });
+
+$router->get('/config', function () {
+    $value = config('app.locale');
+    global $app;
+    return $value;
+});
+
+
+$router->group(['prefix' => 'api', 'middleware' => 'jwt.auth'], function () use ($router) {
+
+
+    $router->get('valid_doc',  ['uses' => 'UserController@valid_doc']);
+
+
+    $router->get('doctors',  ['uses' => 'DoctorController@showAllDoctors']);
+
+    $router->post('add_doctor', ['uses' => 'DoctorController@create']);
+
+    $router->get('doctors/{id}',  ['uses' => 'DoctorController@showOneDoctor']);
+
+
+    $router->post('dump', function () {
+        return serialize($_POST);
+    });
+
+
+
+});
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+
+    $router->post('register_doctor_user', ['uses' => 'UserController@register_doctor_user']);
+
+
+    $router->post('add_user', ['uses' => 'UserController@create']);
+
+
+});
+
+$router->group(['prefix' => 'auth'], function () use ($router) {
+    $router->post('login', ['uses' => 'AuthController@authenticate']);
+
+});
+
