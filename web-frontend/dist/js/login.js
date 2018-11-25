@@ -4,12 +4,16 @@ $(function () {
 
         init: function () {
             this.check_login();
-
+            window.logout = function () {
+                localStorage.removeItem("presc_user_token");
+                return;
+            }
         },
 
         check_login: function () {
             let user_token = localStorage.getItem("presc_user_token");
-
+            // localStorage.removeItem("presc_user_token");
+            // return;
             if (user_token !== null) return;
 
             let location_uri = location.pathname.substr(1);

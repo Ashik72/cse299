@@ -399,14 +399,15 @@ $(function () {
                     dataType: 'text json',
                     success: function (data, textStatus, jqXHR) {
                         console.log(data);
+                        alert("Prescription added, ID - "+data);
                         //localStorage.setItem("presc_user_token", data.token);
                         //window.location.href = "/web-frontend/";
                         return;
                     },
 
                     error: function (jqXHR, textStatus, errorThrown) {
-                        localStorage.removeItem("presc_user_token");
-                        window.location.href = "/web-frontend/pages/examples/login.html";
+                        // localStorage.removeItem("presc_user_token");
+                        // window.location.href = "/web-frontend/pages/examples/login.html";
 
                         console.log([jqXHR, textStatus, errorThrown]);
 
