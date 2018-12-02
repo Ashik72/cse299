@@ -16,7 +16,7 @@ class Doctor extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'first_name', 'last_name', 'phone_num', 'hospital', 'department', 'registration_date', 'status', 'user_id', 'registration_number', 'speciality', 'license_no'];
+        'title', 'first_name', 'last_name', 'degree','phone_num', 'hospital', 'department', 'registration_date', 'status', 'user_id', 'registration_number', 'speciality', 'license_no'];
 
     /**
      * The attributes excluded from the model's JSON form.
