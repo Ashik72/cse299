@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbd71d0c-9712-43df-a407-8df93ea16f49" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/api/app/Doctor.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/Doctor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/Http/Controllers/DoctorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/Http/Controllers/DoctorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/Http/Controllers/PrescController.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/Http/Controllers/PrescController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,13 +31,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
-              <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
+            <state relative-caret-position="549">
+              <caret line="66" column="67" lean-forward="true" selection-start-line="66" selection-start-column="67" selection-end-line="66" selection-end-column="67" />
               <folding>
                 <element signature="e#7#388#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PrescController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api/app/Http/Controllers/PrescController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="605">
+              <caret line="178" column="35" selection-start-line="178" selection-start-column="35" selection-end-line="178" selection-end-column="35" />
+              <folding>
+                <element signature="e#40#55#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -110,7 +120,6 @@
         <option value="$PROJECT_DIR$/api/bootstrap/app.php" />
         <option value="$PROJECT_DIR$/web-frontend/index.html" />
         <option value="$PROJECT_DIR$/web-frontend/pages/forms/view_prescription.html" />
-        <option value="$PROJECT_DIR$/api/app/Http/Controllers/PrescController.php" />
         <option value="$PROJECT_DIR$/web-frontend/dist/js/login.js" />
         <option value="$PROJECT_DIR$/web-frontend/dist/js/demo.js" />
         <option value="$PROJECT_DIR$/web-frontend/pages/forms/prescription.html" />
@@ -118,6 +127,7 @@
         <option value="$PROJECT_DIR$/api/app/Doctor.php" />
         <option value="$PROJECT_DIR$/api/app/Http/Controllers/DoctorController.php" />
         <option value="$PROJECT_DIR$/api/routes/web.php" />
+        <option value="$PROJECT_DIR$/api/app/Http/Controllers/PrescController.php" />
       </list>
     </option>
   </component>
@@ -362,12 +372,12 @@
       <workItem from="1543257403593" duration="577000" />
       <workItem from="1543409236123" duration="474000" />
       <workItem from="1543511186324" duration="2026000" />
-      <workItem from="1543600176517" duration="4216000" />
+      <workItem from="1543600176517" duration="4495000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61197000" />
+    <option name="totallyTimeSpent" value="61476000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="417" y="23" width="1475" height="961" extended-state="0" />
@@ -828,16 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/app/Http/Controllers/PrescController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="57" column="22" lean-forward="true" selection-start-line="57" selection-end-line="58" />
-          <folding>
-            <element signature="e#40#55#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/app/Http/Controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
@@ -860,10 +860,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
+        <state relative-caret-position="549">
+          <caret line="66" column="67" lean-forward="true" selection-start-line="66" selection-start-column="67" selection-end-line="66" selection-end-column="67" />
           <folding>
             <element signature="e#7#388#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/app/Http/Controllers/PrescController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="605">
+          <caret line="178" column="35" selection-start-line="178" selection-start-column="35" selection-end-line="178" selection-end-column="35" />
+          <folding>
+            <element signature="e#40#55#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

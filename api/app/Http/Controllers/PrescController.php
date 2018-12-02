@@ -164,6 +164,8 @@ class PrescController extends UserController
 
         $prescribed_case_history = DB::select("SELECT * FROM `prescribed_case_history` WHERE prescription_id = :id", ['id' => $get_presc[0]->id]);
 
+        $doctor_degree = DB::select("SELECT degree  FROM `doctor_info`, `user` WHERE doctor_info.user_id = user.user_id AND user.user_id = :id", ['id' => $get_presc[0]->doctor_id]);
+
         $print_presc['prescription_id'] = $id;
 
         $print_presc['patient_name'] = $patient_name[0]->name." (ID: {$get_presc[0]->patient_id})";
@@ -174,6 +176,7 @@ class PrescController extends UserController
         $print_presc['prescribed_case_history'] = $prescribed_case_history;
         $print_presc['print_time'] = date("M,d,Y h:i:s A");
         $print_presc['patient_dob'] = $patient_dob[0]->date_of_birth;
+        $print_presc['doctor_degree'] = $doctor_degree;
 
         $a = new \DateTime($get_presc[0]->date);
         $b = new \DateTime($patient_dob[0]->date_of_birth);
