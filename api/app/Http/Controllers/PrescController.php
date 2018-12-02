@@ -154,7 +154,9 @@ class PrescController extends UserController
         $patient_name = DB::select("SELECT CONCAT(first_name, ' ',last_name) AS name FROM `patient_info` WHERE patient_id = :id", ['id' => $get_presc[0]->patient_id]);
         $patient_dob = DB::select("SELECT date_of_birth FROM `patient_info` WHERE patient_id = :id", ['id' => $get_presc[0]->patient_id]);
 
-        $doctor_name = DB::select("SELECT CONCAT(first_name, ' ',last_name) AS name  FROM `doctor_info`, `user` WHERE doctor_info.user_id = user.user_id AND user.user_id = :id", ['id' => $get_presc[0]->doctor_id]);
+       // $doctor_name = DB::select("SELECT CONCAT(first_name, ' ',last_name) AS name  FROM `doctor_info`, `user` WHERE doctor_info.user_id = user.user_id AND user.user_id = :id", ['id' => $get_presc[0]->doctor_id]);
+
+        $doctor_name = DB::select("SELECT CONCAT(first_name, ' ',last_name) AS name  FROM `doctor_info` WHERE doctor_info.doctor_id = :id", ['id' => $get_presc[0]->doctor_id]);
 
         $medicines = DB::select("SELECT * FROM `prescribed_drugs` WHERE prescription_id = :id", ['id' => $get_presc[0]->id]);
 
@@ -164,7 +166,8 @@ class PrescController extends UserController
 
         $prescribed_case_history = DB::select("SELECT * FROM `prescribed_case_history` WHERE prescription_id = :id", ['id' => $get_presc[0]->id]);
 
-        $doctor_degree = DB::select("SELECT degree  FROM `doctor_info`, `user` WHERE doctor_info.user_id = user.user_id AND user.user_id = :id", ['id' => $get_presc[0]->doctor_id]);
+        $doctor_degree = DB::select("SELECT degree  FROM `doctor_info` WHERE doctor_info.doctor_id = :id", ['id' => $get_presc[0]->doctor_id]);
+
 
         $print_presc['prescription_id'] = $id;
 
@@ -176,7 +179,7 @@ class PrescController extends UserController
         $print_presc['prescribed_case_history'] = $prescribed_case_history;
         $print_presc['print_time'] = date("M,d,Y h:i:s A");
         $print_presc['patient_dob'] = $patient_dob[0]->date_of_birth;
-        $print_presc['doctor_degree'] = serialize($doctor_degree);
+        $print_presc['doctor_degree'] = (isset($doctor_degree[0]) ? $doctor_degree[0]->degree : "");
 
         $a = new \DateTime($get_presc[0]->date);
         $b = new \DateTime($patient_dob[0]->date_of_birth);
