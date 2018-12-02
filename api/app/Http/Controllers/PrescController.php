@@ -176,7 +176,7 @@ class PrescController extends UserController
         $print_presc['prescribed_case_history'] = $prescribed_case_history;
         $print_presc['print_time'] = date("M,d,Y h:i:s A");
         $print_presc['patient_dob'] = $patient_dob[0]->date_of_birth;
-        $print_presc['doctor_degree'] = $doctor_degree[0]->degree;
+        $print_presc['doctor_degree'] = serialize($doctor_degree);
 
         $a = new \DateTime($get_presc[0]->date);
         $b = new \DateTime($patient_dob[0]->date_of_birth);
