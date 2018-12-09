@@ -39,7 +39,6 @@ $router->get('/config', function () {
 $router->group(['prefix' => 'api', 'middleware' => 'jwt.auth'], function () use ($router) {
 
 
-    $router->get('valid_doc',  ['uses' => 'UserController@valid_doc']);
 
 
     $router->get('doctors',  ['uses' => 'DoctorController@showAllDoctors']);
@@ -62,6 +61,8 @@ $router->group(['prefix' => 'api', 'middleware' => 'jwt.auth'], function () use 
 $router->group(['prefix' => 'api'], function () use ($router) {
 
     $router->post('register_doctor_user', ['uses' => 'UserController@register_doctor_user']);
+
+    $router->get('valid_doc',  ['uses' => 'UserController@valid_doc']);
 
 
     $router->post('add_user', ['uses' => 'UserController@create']);
