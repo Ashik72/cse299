@@ -68,6 +68,8 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
     $router->post('get_presc', ['uses' => 'PrescController@get_presc']);
 
+    $router->post('get_presc_doctor', ['uses' => 'PrescController@get_presc_doctor']);
+
 
 });
 

@@ -142,6 +142,15 @@ class PrescController extends UserController
 
     }
 
+    public function get_presc_doctor(Request $request) {
+
+        //
+        $id = $request->request->get('doctor_id');
+        $get_presc = DB::select("SELECT id AS prescription_id, CONCAT(first_name, last_name) AS name, phone_no FROM `prescription`, `patient_info` WHERE doctor_id = :id AND prescription.patient_id = patient_info.patient_id", ['id' => $id]);
+
+        return response()->json($get_presc, 201);
+
+    }
 
     public function get_presc(Request $request) {
 
